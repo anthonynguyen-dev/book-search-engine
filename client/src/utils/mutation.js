@@ -12,6 +12,18 @@ export const ADD_USER = gql`
   }
 `;
 
+export const LOG_IN = gql`
+  mutation Login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      token
+      user {
+        email
+        password
+        username
+      }
+    }
+  }
+`;
 export const ADD_BOOK = gql`
   mutation AddBook($bookData: BookInput!) {
     addBook(bookData: $bookData) {
